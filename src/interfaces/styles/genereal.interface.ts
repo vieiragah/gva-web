@@ -1,0 +1,42 @@
+export interface InterfaceStyle {
+    $width?: string | number;
+    $height?: string;
+    $padding?: string;
+    $top?: string;
+    $gap?: string;
+    $display?: string;
+    $margin?: string;
+    $justify?: string;
+    $alignItens?: string;
+    $direction?: string;
+    $wrap?: string;
+    $borderRadius?: string;
+    $border?: string;
+    $boxShadow?: string;
+    $marginLeft?: string;
+    $backgroundColor?: string;
+    $fontSize?: string;
+    $lineHeight?: string;
+    $isActive?: boolean;
+    $position?: string;
+    $borderBottom?: string;
+    $borderTop?: string;
+    $maxWidth?: string;
+    $marginTop?: string;
+    $variant?: string;
+    $zIndex?: string;
+    $color?: string;
+    $cursor?: string;
+    $textAlign?: string;
+    $templateRows?: string;
+    $templateColumns?: string;
+    $marginRight?: string;
+    $minWidth?: string;
+    $gridTemplateColumns?: string;
+    $gridTemplateRows?: string;
+    $gridAutoFlow?: string;
+    $flex?: string;
+    $maxHeight?: string;
+    $overFlow?: string;
+  }
+  
