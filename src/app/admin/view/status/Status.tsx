@@ -1,6 +1,10 @@
+import { Container } from "@mui/material";
+import { CardComponent } from "../../../../interfaces";
 
-export const StatusView = () => {
+export const StatusView = ({ form }: { form: JSX.Element }): JSX.Element => {
   return (
-    <div>Status</div>
-  )
-}
+    <Container>
+      <CardComponent>{form}</CardComponent>
+    </Container>
+  );
+};
