@@ -8,7 +8,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import HealingIcon from "@mui/icons-material/Healing";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
-import CancelIcon from "@mui/icons-material/Cancel";
+import VerifiedIcon from '@mui/icons-material/Verified';
+
 export const Sidebar = () => {
   return (
     <Tabs
@@ -38,7 +39,7 @@ export const Sidebar = () => {
         </Link>
         <Link to="/presence-page">
           <Tab value={5}>
-            <CancelIcon />
+            <VerifiedIcon />
           </Tab>
         </Link>
       </TabsList>
