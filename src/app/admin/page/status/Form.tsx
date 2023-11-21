@@ -65,7 +65,7 @@ export const FormStatus = () => {
                     color="primary"
                     value={alignment[index] || "stable"}
                     exclusive
-                    onChange={(event, newAlignment) =>
+                    onChange={(_, newAlignment) =>
                       handleChange(newAlignment, index)
                     }
                     aria-label={`Platform ${index}`}
