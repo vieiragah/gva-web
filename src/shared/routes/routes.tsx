@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 //import { Routes } from ".";
 import App from "../../app/App";
 import { ErrorPage } from "../components";
-import {  Login, User } from "../../app";
+import {  Home, Login, User } from "../../app";
 
 export const Router = createBrowserRouter([
   {
@@ -13,6 +13,10 @@ export const Router = createBrowserRouter([
       {
         path: '/',
         element: <Login />,
+      },
+      {
+        path: '/home',
+        element: <Home />
       },
       {
         path: '/adm',

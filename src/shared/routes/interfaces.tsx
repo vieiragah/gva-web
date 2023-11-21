@@ -1,8 +1,12 @@
 // const scale = "/scale";
 // const admin = "/admin";
+// const home = '/home';
 
 // const AUTH = {
 //   LOGIN : '/'
+// }
+// const HOME = {
+//     HOME: `${home}`
 // }
 // const SCALE = {
 //   DASHBOARD: `${scale}/dashboard`,
