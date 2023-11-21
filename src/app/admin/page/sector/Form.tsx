@@ -11,7 +11,7 @@ export const FormCreateSector = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       <Typography variant="h4" margin={"20px auto"}>
-        Criar usuário
+        Criar Setor
       </Typography>
       <TextField label="Nome do setor" variant="outlined" />
       <TextField
