@@ -62,6 +62,7 @@ export const FormStatus = () => {
                     {`Leito ${index + 1}`}
                   </Typography>
                   <ToggleButtonGroup
+                    sx={{ display: "flex", justifyContent: "center" }}
                     color="primary"
                     value={alignment[index] || "stable"}
                     exclusive
