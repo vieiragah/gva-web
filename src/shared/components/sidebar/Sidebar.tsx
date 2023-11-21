@@ -11,36 +11,38 @@ import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import CancelIcon from "@mui/icons-material/Cancel";
 export const Sidebar = () => {
   return (
-
-        <Tabs defaultValue={1} style={{position: 'fixed', bottom: '-10px', left: '3%', right:'3%'}}>
-          <TabsList>
-            <Link to="/home">
-              <Tab value={1}>
-                <HomeIcon />
-              </Tab>
-            </Link>
-            <Link to="/adm-create-user">
-              <Tab value={2}>
-                <PersonAddIcon />
-              </Tab>
-            </Link>
-            <Link to="/adm-create-sector">
-              <Tab value={3}>
-                <HealingIcon />
-              </Tab>
-            </Link>
-            <Link to="/adm-create-status">
-              <Tab value={4}>
-                <AssignmentTurnedInIcon />
-              </Tab>
-            </Link>
-            <Link to="/presence-page">
-              <Tab value={5}>
-                <CancelIcon />
-              </Tab>
-            </Link>
-          </TabsList>
-        </Tabs>
+    <Tabs
+      defaultValue={1}
+      style={{ position: "fixed", bottom: "-10px", left: "3%", right: "3%" }}
+    >
+      <TabsList>
+        <Link to="/home">
+          <Tab value={1}>
+            <HomeIcon />
+          </Tab>
+        </Link>
+        <Link to="/adm-create-user">
+          <Tab value={2}>
+            <PersonAddIcon />
+          </Tab>
+        </Link>
+        <Link to="/adm-create-sector">
+          <Tab value={3}>
+            <HealingIcon />
+          </Tab>
+        </Link>
+        <Link to="/adm-create-status">
+          <Tab value={4}>
+            <AssignmentTurnedInIcon />
+          </Tab>
+        </Link>
+        <Link to="/presence-page">
+          <Tab value={5}>
+            <CancelIcon />
+          </Tab>
+        </Link>
+      </TabsList>
+    </Tabs>
   );
 };
 const blue = {
@@ -93,7 +95,7 @@ const Tab = styled(BaseTab)`
 
 const TabsList = styled(BaseTabsList)(
   ({ theme }) => `
-    min-width: 126%;
+    min-width: 100%;
     background-color: ${blue[500]};
     border-radius: 12px;
     margin-bottom: 16px;
