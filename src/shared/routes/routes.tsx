@@ -2,7 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 //import { Routes } from ".";
 import App from "../../app/App";
 import { ErrorPage } from "../components";
-import { Home, Login, SectorPage, StatusPage, UserPage } from "../../app";
+import {
+  Home,
+  Login,
+  PresencePage,
+  SectorPage,
+  StatusPage,
+  UserPage,
+} from "../../app";
 
 export const Router = createBrowserRouter([
   {
@@ -27,8 +34,12 @@ export const Router = createBrowserRouter([
         element: <SectorPage />,
       },
       {
-        path: '/adm-create-status',
-        element: <StatusPage/>
+        path: "/adm-create-status",
+        element: <StatusPage />,
+      },
+      {
+        path: "/presence-page",
+        element: <PresencePage />,
       },
     ],
   },
