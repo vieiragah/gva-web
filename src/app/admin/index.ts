@@ -1,1 +1,2 @@
-export * from './User'
+export * from './view'
+export * from './page'
