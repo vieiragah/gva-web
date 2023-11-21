@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 //import { Routes } from ".";
 import App from "../../app/App";
 import { ErrorPage } from "../components";
-import {  Home, Login, User } from "../../app";
+import { Home, Login, SectorPage, UserPage } from "../../app";
 
 export const Router = createBrowserRouter([
   {
@@ -11,17 +11,21 @@ export const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Login />,
       },
       {
-        path: '/home',
-        element: <Home />
+        path: "/home",
+        element: <Home />,
       },
       {
-        path: '/adm',
-        element: <User />
-      }
+        path: "/adm-create-user",
+        element: <UserPage />,
+      },
+      {
+        path: "/adm-create-sector",
+        element: <SectorPage />,
+      },
     ],
   },
 ]);
