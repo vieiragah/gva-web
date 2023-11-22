@@ -34,8 +34,8 @@ export const Confirmation = () => {
         <br />
         <strong>{format(currentDate, "dd/MM/yyyy")}</strong>
       </Typography>
-      <Button variant="contained" fullWidth sx={{ margin: "60px 0" }}>
-        CONFIRMAR
+      <Button variant="contained" size="large" fullWidth sx={{ margin: "60px 0" }}>
+        CONFIRMAR PRESENÇA
       </Button>
       <Button
         variant="outlined"
