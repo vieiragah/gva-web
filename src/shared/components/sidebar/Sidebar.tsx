@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { styled } from "@mui/system";
 import { Tabs } from "@mui/base/Tabs";
 import { TabsList as BaseTabsList } from "@mui/base/TabsList";
@@ -11,6 +11,8 @@ import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import VerifiedIcon from '@mui/icons-material/Verified';
 
 export const Sidebar = () => {
+  const { pathname } = useLocation();
+
   return (
     <Tabs
       defaultValue={1}
@@ -18,27 +20,27 @@ export const Sidebar = () => {
     >
       <TabsList>
         <Link to="/home">
-          <Tab value={1}>
+          <Tab value={1} isActive={pathname === '/home'}>
             <HomeIcon />
           </Tab>
         </Link>
         <Link to="/adm-create-user">
-          <Tab value={2}>
+          <Tab value={2} isActive={pathname === '/adm-create-user'}>
             <PersonAddIcon />
           </Tab>
         </Link>
         <Link to="/adm-create-sector">
-          <Tab value={3}>
+          <Tab value={3} isActive={pathname === '/adm-create-sector'}>
             <HealingIcon />
           </Tab>
         </Link>
         <Link to="/adm-create-status">
-          <Tab value={4}>
+          <Tab value={4} isActive={pathname === '/adm-create-status'}>
             <AssignmentTurnedInIcon />
           </Tab>
         </Link>
         <Link to="/presence-page">
-          <Tab value={5}>
+          <Tab value={5} isActive={pathname === '/presence-page'}>
             <VerifiedIcon />
           </Tab>
         </Link>
@@ -47,16 +49,10 @@ export const Sidebar = () => {
   );
 };
 const blue = {
-  50: "#F0F7FF",
-  100: "#C2E0FF",
   200: "#80BFFF",
-  300: "#66B2FF",
   400: "#3399FF",
   500: "#007FFF",
   600: "#0072E5",
-  700: "#0059B2",
-  800: "#004C99",
-  900: "#003A75",
 };
 
 const Tab = styled(BaseTab)`
@@ -73,14 +69,24 @@ const Tab = styled(BaseTab)`
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  ${(props) => props.isActive && `
+    background-color: #fff;
+    color: ${blue[600]};
+  `}
 
   &:hover {
     background-color: ${blue[400]};
   }
 
   &:focus {
+    ${(props) =>
+      props.isActive &&
+      `
     color: #fff;
-    outline: 3px solid ${blue[200]};
+    outline: 3px solid ${blue[200]}`}
+    &:focus {
+    color: #fff;
+    outline: 3px solid ${blue[200]}
   }
 
   &.${tabClasses.selected} {
