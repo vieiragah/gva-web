@@ -13,10 +13,15 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { MockSectorName } from "../../../../mock";
+import { useNavigate } from "react-router";
 
 export const FormStatus = () => {
   const [selectedSector, setSelectedSector] = useState("");
   const [alignment, setAlignment] = useState<string[]>([]);
+  const navigate = useNavigate()
+  const handleGoBack = () => {
+    navigate(-1)
+  }
 
   const handleSectorChange = (event: SelectChangeEvent<string>) => {
     setSelectedSector(event.target.value);
@@ -92,7 +97,7 @@ export const FormStatus = () => {
         />
       ) : null}
       <Box display={"flex"} justifyContent={"space-between"} margin={"30px 0"}>
-        <Button variant="outlined">VOLTAR</Button>
+        <Button variant="outlined" onClick={handleGoBack}>VOLTAR</Button>
         <Button variant="contained">SALVAR</Button>
       </Box>
     </Box>
