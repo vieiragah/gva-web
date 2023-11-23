@@ -10,10 +10,18 @@ import {
 import { useState } from "react";
 import { format } from "date-fns";
 import { ContactTable } from ".";
+import { useNavigate } from "react-router-dom";
 export const Confirmation = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -27,14 +35,21 @@ export const Confirmation = () => {
   };
   const currentDate = new Date();
   return (
-    <Box sx={{marginBottom:'20px'}}>
-      <Typography variant="h4" textAlign={'center'}>Nome do setor</Typography>
+    <Box sx={{ marginBottom: "20px" }}>
+      <Typography variant="h4" textAlign={"center"}>
+        Nome do setor
+      </Typography>
       <Typography variant="h5" textAlign={"center"} sx={{ margin: "30px 0" }}>
         Confirmar presença hoje dia:
         <br />
         <strong>{format(currentDate, "dd/MM/yyyy")}</strong>
       </Typography>
-      <Button variant="contained" size="large" fullWidth sx={{ margin: "60px 0" }}>
+      <Button
+        variant="contained"
+        size="large"
+        fullWidth
+        sx={{ margin: "60px 0" }}
+      >
         CONFIRMAR PRESENÇA
       </Button>
       <Button
@@ -45,7 +60,7 @@ export const Confirmation = () => {
       >
         registar falta
       </Button>
-      <ContactTable/>
+      <ContactTable />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -87,7 +102,9 @@ export const Confirmation = () => {
           </Box>
         </Fade>
       </Modal>
-      <Button variant="outlined">voltar</Button>
+      <Button variant="outlined" onClick={handleGoBack}>
+        voltar
+      </Button>
     </Box>
   );
 };
