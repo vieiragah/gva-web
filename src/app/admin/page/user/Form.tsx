@@ -11,20 +11,35 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import { FormData } from "../../../../interfaces";
+
 export const FormCreateUser = () => {
-  const { handleSubmit, register } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    setError,
+    getValues,
+  } = useForm<FormData>();
+
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  const onSubmit = async (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: FormData) => {
     try {
-      const response = await axios.post("http://localhost:3000/users", data);
-      const { status } = response;
+      if (data.password !== data.confirmPassword) {
+        setError("confirmPassword", {
+          type: "manual",
+          message: "As senhas não coincidem.",
+        });
+        return;
+      }
 
-      if (status === 200) {
+      const response = await axios.post("http://localhost:3000/users", data);
+
+      if (response.status === 200) {
         toast.success("Usuário criado com sucesso", {
           position: "top-right",
           autoClose: 5000,
@@ -36,8 +51,9 @@ export const FormCreateUser = () => {
           theme: "light",
         });
       }
+      console.log(data);
     } catch (error: any) {
-      toast.error(error.message, {
+      toast.error(error.response.data, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -47,6 +63,7 @@ export const FormCreateUser = () => {
         progress: undefined,
         theme: "light",
       });
+      console.log(error);
     }
   };
 
@@ -59,24 +76,48 @@ export const FormCreateUser = () => {
         onSubmit={handleSubmit(onSubmit)}
         style={{ display: "flex", flexDirection: "column", gap: "20px" }}
       >
-        <TextField label="Nome" variant="outlined" {...register("name")} />
+        <TextField
+          label="Nome"
+          variant="outlined"
+          {...register("name", { required: true })}
+        />
         <TextField
           label="E-mail"
           type="email"
           variant="outlined"
-          {...register("email")}
+          {...register("email", { required: true })}
         />
         <TextField
           label="Senha"
           type="password"
           variant="outlined"
-          {...register("password")}
+          {...register("password", {
+            required: true,
+            minLength: {
+              value: 6,
+              message: "A senha deve conter pelo menos 6 caracteres",
+            },
+          })}
         />
+        {errors.password && (
+          <Typography color={"red"}>{errors.password.message}</Typography>
+        )}
         <TextField
           label="Confirme a senha"
           type="password"
           variant="outlined"
+          {...register("confirmPassword", {
+            required: true,
+            validate: (value) =>
+              value === getValues("password") || "As senhas não coincidem.",
+          })}
         />
+        {errors.confirmPassword && (
+          <Typography color={"red"}>
+            {errors.confirmPassword.message}
+          </Typography>
+        )}
+
         <RadioGroup
           row
           sx={{ justifyContent: "center" }}
