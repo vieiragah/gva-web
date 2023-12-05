@@ -20,6 +20,7 @@ export const FormCreateUser = () => {
     formState: { errors },
     setError,
     getValues,
+    reset,
   } = useForm<FormData>();
 
   const navigate = useNavigate();
@@ -51,7 +52,6 @@ export const FormCreateUser = () => {
           theme: "light",
         });
       }
-      console.log(data);
     } catch (error: any) {
       toast.error(error.response.data, {
         position: "top-right",
@@ -64,6 +64,8 @@ export const FormCreateUser = () => {
         theme: "light",
       });
       console.log(error);
+    } finally {
+      reset();
     }
   };
 
