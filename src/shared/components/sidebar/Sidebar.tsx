@@ -9,6 +9,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import HealingIcon from "@mui/icons-material/Healing";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import VerifiedIcon from '@mui/icons-material/Verified';
+import { Routes } from "../..";
 
 export const Sidebar = () => {
   const { pathname } = useLocation();
@@ -19,27 +20,27 @@ export const Sidebar = () => {
       style={{ position: "fixed", bottom: "-10px", left: "3%", right: "3%" }}
     >
       <TabsList>
-        <Link to="/home">
+        <Link to={Routes.home.HOME}>
           <Tab value={1} isActive={pathname === '/home'}>
             <HomeIcon />
           </Tab>
         </Link>
-        <Link to="/adm-create-user">
+        <Link to={Routes.admin.CREATE_USER}>
           <Tab value={2} isActive={pathname === '/adm-create-user'}>
             <PersonAddIcon />
           </Tab>
         </Link>
-        <Link to="/adm-create-sector">
+        <Link to={Routes.admin.CREATE_SECTOR}>
           <Tab value={3} isActive={pathname === '/adm-create-sector'}>
             <HealingIcon />
           </Tab>
         </Link>
-        <Link to="/adm-create-status">
+        <Link to={Routes.admin.CREATE_STATUS}>
           <Tab value={4} isActive={pathname === '/adm-create-status'}>
             <AssignmentTurnedInIcon />
           </Tab>
         </Link>
-        <Link to="/presence-page">
+        <Link to={Routes.scale.PRESENCE}>
           <Tab value={5} isActive={pathname === '/presence-page'}>
             <VerifiedIcon />
           </Tab>
