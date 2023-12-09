@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-//import { Routes } from ".";
+import { Routes } from "./interfaces";
 import App from "../../app/App";
 import { ErrorPage } from "../components";
 import {
@@ -18,27 +18,27 @@ export const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: Routes.auth.LOGIN,
         element: <Login />,
       },
       {
-        path: "/home",
+        path: Routes.home.HOME,
         element: <Home />,
       },
       {
-        path: "/adm-create-user",
+        path: Routes.admin.CREATE_USER,
         element: <UserPage />,
       },
       {
-        path: "/adm-create-sector",
+        path: Routes.admin.CREATE_SECTOR,
         element: <SectorPage />,
       },
       {
-        path: "/adm-create-status",
+        path: Routes.admin.CREATE_STATUS,
         element: <StatusPage />,
       },
       {
-        path: "/presence-page",
+        path: Routes.scale.PRESENCE,
         element: <PresencePage />,
       },
     ],
